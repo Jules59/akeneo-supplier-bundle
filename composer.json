@@ -17,6 +17,7 @@
     "config": {
         "bin-dir": "bin"
     },
+    "minimum-stability": "stable",
     "require": {
         "akeneo/pim-enterprise-dev": "2.0.*",
         "akeneo-labs/custom-entity-bundle": "2.0.*"
