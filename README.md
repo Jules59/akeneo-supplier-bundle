@@ -15,7 +15,7 @@ If you have not install the [custom entity bundle](https://github.com/akeneo-lab
 
 You can install this bundle with composer :
 ```bash
-    php composer.phar require "igc-lille/supplier-bundle":"1.0.*"
+    php composer.phar require "igcopensources/akeneo-supplier-bundle":"1.0.*"
 ```
 
 Enable the bundle in the app/AppKernel.php file in the registerBundles() method:
