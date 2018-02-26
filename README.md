@@ -23,12 +23,13 @@ Enable the bundle in the app/AppKernel.php file in the registerBundles() method:
     $bundles = [
         // ...
         new Cgi\SupplierBundle\CgiSupplierBundle(),
+        // ...
     ]
 ```
 
 ## Documentation
 
-- [Configure suppluer as reference data](docs/reference-data-configuration.md)
-- [Use CSV file to import you suppliers](docs/supplier-import-configuration.md)
-- [Add properties to your supplier](docs/override-supplier.md)
-- [Provided events](docs/events.md)
+- [Configure suppluer as reference data](src/docs/reference-data-configuration.md)
+- [Use CSV file to import you suppliers](src/docs/supplier-import-configuration.md)
+- [Add properties to your supplier](src/docs/override-supplier.md)
+- [Provided events](src/docs/events.md)
