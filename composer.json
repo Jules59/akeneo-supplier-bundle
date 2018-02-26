@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cgi\\SupplierBundle\\": "src/"
+            "Cgi\\SupplierBundle\\": ""
         }
     },
 }
