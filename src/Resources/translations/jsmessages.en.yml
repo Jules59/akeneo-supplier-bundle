@@ -1,0 +1,33 @@
+supplier:
+    menu:
+        item:
+            title: Suppliers
+    field:
+        label:
+            code: Code
+            name: Name
+    action:
+        delete: Are you sure about deleting this supplier ?
+    form:
+        tab:
+            users:
+                title: Users
+
+confirmation:
+    remove:
+        supplier: Are you sure about deleting this supplier ?
+
+pim_custom_entity:
+    message:
+        confirmation:
+            removed: Supplier has been removed.
+
+flash:
+    supplier:
+        removed: Supplier has been removed.
+
+
+batch_jobs:
+    supplier_csv_import:
+        label: CSV suppliers import
+

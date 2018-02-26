@@ -1,0 +1,2 @@
+parameters:
+    supplier.class.name: Cgi\SupplierBundle\Entity\Supplier

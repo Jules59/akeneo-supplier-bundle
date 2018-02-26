@@ -1,0 +1,19 @@
+parameters:
+    supplier.manager.attribute.class: Cgi\SupplierBundle\Manager\AttributeManager
+
+services:
+    supplier.manager:
+        class: '%pim_custom_entity.manager.class%'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@supplier.updater'
+            - '@pim_custom_entity.saver.custom_entity'
+            - '@pim_custom_entity.remover.custom_entity'
+            - '@pim_custom_entity.normalizer.internal_api.custom_entity'
+        tags:
+            - { name: pim_custom_entity.manager, alias: supplier }
+
+    supplier.manager.attribute:
+        class: "%supplier.manager.attribute.class%"
+        arguments:
+            - "@pim_catalog.repository.attribute"

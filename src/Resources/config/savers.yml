@@ -1,0 +1,7 @@
+services:
+    supplier.saver:
+        class: "%pim_catalog.saver.base.class%"
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@event_dispatcher"
+            - "%supplier.class.name%"

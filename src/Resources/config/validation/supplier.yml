@@ -1,0 +1,16 @@
+Cgi\SupplierBundle\Entity\Supplier:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code
+    properties:
+        code:
+            - NotBlank: ~
+            - Type: string
+            - Regex:
+                pattern: /^[a-zA-Z0-9_]+$/
+                message: Code may contain only letters, numbers and underscores.
+            - Length:
+                max: 30
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255

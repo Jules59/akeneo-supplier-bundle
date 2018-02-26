@@ -1,0 +1,6 @@
+custom_entities:
+    supplier:
+        entity_class: "%supplier.class.name%"
+        options:
+            edit_form_extension: pim-supplier-edit-form
+            manager: "supplier"

@@ -1,0 +1,20 @@
+parameters:
+    supplier.subscriber.supplier_users_grid.class: Cgi\SupplierBundle\Subscribers\SupplierUserDatagridSubscriber
+    supplier.subscriber.product_datagrid.class:    Cgi\SupplierBundle\Subscribers\ProductDatagridSubscriber
+
+services:
+    supplier.subscriber.supplier_users_grid:
+        class: "%supplier.subscriber.supplier_users_grid.class%"
+        arguments:
+            - "@request_stack"
+        tags:
+            - { name: kernel.event_subscriber }
+
+    supplier.scubscriber.product_datagrid:
+        class: "%supplier.subscriber.product_datagrid.class%"
+        arguments:
+            - "@pim_user.context.user"
+            - "@supplier.repository"
+            - "@supplier.manager.attribute"
+        tags:
+            - { name: kernel.event_subscriber }

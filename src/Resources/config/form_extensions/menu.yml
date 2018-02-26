@@ -1,0 +1,11 @@
+extensions:
+    supplier-menu-reference-data-item-supplier:
+        module: pim/menu/item
+        parent: pim-menu-reference_data-navigation-block
+        aclResourceId: supplier_acl_index
+        position: 10
+        config:
+            title: supplier.menu.item.title
+            to: pim_customentity_index
+            routeParams:
+                customEntityName: supplier

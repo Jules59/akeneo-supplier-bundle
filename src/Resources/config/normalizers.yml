@@ -1,0 +1,11 @@
+parameters:
+    supplier.normalizer.standard.class: Cgi\SupplierBundle\Normalizer\Normalization\Standard\SupplierNormalizer
+
+services:
+    supplier.normalizer.standard:
+        public: false
+        class: "%supplier.normalizer.standard.class%"
+        arguments:
+            - ['standard', 'internal_api']
+        tags:
+            - { name: pim_serializer.normalizer, priority: 200 }

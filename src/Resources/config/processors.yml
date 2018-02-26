@@ -1,0 +1,9 @@
+services:
+    supplier.processor.denormalization:
+        class: "%pim_connector.processor.denormalization.class%"
+        arguments:
+            - "@supplier.repository"
+            - "@supplier.factory"
+            - "@supplier.updater"
+            - "@validator"
+            - "@akeneo_storage_utils.doctrine.object_detacher"

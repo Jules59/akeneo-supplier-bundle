@@ -1,0 +1,6 @@
+services:
+    supplier.writer.database:
+        class: '%pim_connector.writer.database.class%'
+        arguments:
+            - '@supplier.saver'
+            - '@akeneo_storage_utils.doctrine.object_detacher'

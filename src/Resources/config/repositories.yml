@@ -1,0 +1,11 @@
+parameters:
+    supplier.repository.class: Cgi\SupplierBundle\Entity\Repository\SupplierRepository
+
+services:
+    supplier.repository:
+        class: "%supplier.repository.class%"
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments:
+            - "%supplier.class.name%"
+        tags:
+            - { name: 'pim_repository' }

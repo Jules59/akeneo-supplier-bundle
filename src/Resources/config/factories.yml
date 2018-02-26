@@ -1,0 +1,9 @@
+parameters:
+    supplier.factory.class: Cgi\SupplierBundle\Factory\SupplierFactory
+
+services:
+    supplier.factory:
+        class: "%supplier.factory.class%"
+        arguments:
+            - "%supplier.class.name%"
+            - "@event_dispatcher"

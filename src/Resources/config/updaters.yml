@@ -1,0 +1,10 @@
+parameters:
+    supplier.updater.class: Cgi\SupplierBundle\Updater\SupplierUpdater
+
+services:
+    supplier.updater:
+        class: "%supplier.updater.class%"
+        arguments:
+            - "@logger"
+            - "@event_dispatcher"
+            - "@pim_user.repository.user"

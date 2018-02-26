@@ -1,0 +1,74 @@
+datagrid:
+    supplier-user-grid:
+        extended_entity_name: '%oro_user.entity.class%'
+        options:
+            entityHint: user
+            manageFilters: false
+            requireJSModules:
+                - pim/datagrid/column-form-listener
+            columnListener:
+                dataField: id
+                columnName: is_checked
+        source:
+            type: orm
+            query:
+                select:
+                    - u.id
+                    - u.username
+                    - u.email
+                    - u.firstName
+                    - u.lastName
+                    - (CASE WHEN (u.id IN (:supplier_user_ids)) THEN
+                          true
+                      ELSE
+                          false
+                      END) as is_checked
+                from:
+                    - { table: '%oro_user.entity.class%', alias: u }
+        columns:
+            is_checked:
+                editable: true
+                frontend_type: boolean
+            is_associated:
+                label:         Is associated
+                data_name:     is_checked
+                frontend_type: boolean-label
+            username:
+                label: oro.user.grid.users.columns.username
+                frontend_type: label
+            email:
+                label: oro.user.grid.users.columns.email
+            firstName:
+                label: oro.user.grid.users.columns.firstName
+            lastName:
+                label: oro.user.grid.users.columns.lastName
+        properties:
+            id: ~
+        sorters:
+            columns:
+                is_associated:
+                    data_name: is_checked
+                username:
+                    data_name: u.username
+                email:
+                    data_name: u.email
+                firstName:
+                    data_name: u.firstName
+                lastName:
+                    data_name: u.lastName
+            default:
+                is_associated: '%oro_datagrid.extension.orm_sorter.class%::DIRECTION_DESC'
+        filters:
+            columns:
+                username:
+                    type: search
+                    data_name: u.username
+                email:
+                    type: string
+                    data_name: u.email
+                firstName:
+                    type: string
+                    data_name: u.firstName
+                lastName:
+                    type: string
+                    data_name: u.lastName

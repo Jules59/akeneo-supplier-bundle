@@ -1,0 +1,8 @@
+services:
+    supplier.provider.form.job_instance:
+        class: '%pim_enrich.provider.form.job_instance.class%'
+        arguments:
+            -
+                supplier_csv_import: pim-job-instance-csv-base-import
+        tags:
+            - { name: pim_enrich.provider.form, priority: 150 }

@@ -1,0 +1,10 @@
+services:
+    supplier.step.csv.import:
+        class: "%pim_connector.step.item_step.class%"
+        arguments:
+            - "import"
+            - "@event_dispatcher"
+            - "@akeneo_batch.job_repository"
+            - "@pim_custom_entity.reader.file.csv"
+            - "@supplier.processor.denormalization"
+            - "@supplier.writer.database"

@@ -1,0 +1,18 @@
+parameters:
+    # Define new connector.
+    supplier.connector.name: Supplier Connector
+    # Define new import.
+    supplier.job.csv.import.name: supplier_csv_import
+
+services:
+    supplier.job.csv.import:
+        class: "%pim_connector.job.simple_job.class%"
+        arguments:
+            - "%supplier.job.csv.import.name%"
+            - "@event_dispatcher"
+            - "@akeneo_batch.job_repository"
+            -
+                - "@pim_connector.step.charset_validator"
+                - "@supplier.step.csv.import"
+        tags:
+            - { name: akeneo_batch.job, connector: "%supplier.connector.name%", type: "%pim_connector.job.import_type%" }

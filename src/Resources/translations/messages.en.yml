@@ -1,0 +1,6 @@
+supplier:
+    acl:
+        create: Create supplier
+        delete: Delete supplier
+        edit: Edit supplier
+        index: View supplier

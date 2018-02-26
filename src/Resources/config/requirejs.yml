@@ -1,0 +1,9 @@
+config:
+    paths:
+        # Modules.
+        supplier/form/supplier-label:   cgisupplier/js/supplier-label
+        supplier/form/fields/user-grid: cgisupplier/js/field/user-grid
+
+        # Templates.
+        supplier/template/tab/user-grid: cgisupplier/template/tab/user-grid.html
+
