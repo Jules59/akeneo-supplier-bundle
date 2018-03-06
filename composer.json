@@ -23,6 +23,11 @@
         "psr-4": {
             "Cgi\\SupplierBundle\\": ""
         }
+    },
+    "extra" : {
+        "branch-alias" : {
+            "master" : "v1.0.0"
+        }
     }
 }
 

@@ -11,7 +11,7 @@ All users associated at least with one supplier will see only products associate
 
 ## Installation
 
-If you have not install the [custom entity bundle](https://github.com/akeneo-labs/CustomEntityBundle) yet, please do it.
+If you have not installed the [custom entity bundle](https://github.com/akeneo-labs/CustomEntityBundle) yet, please do it.
 
 You can install this bundle with composer :
 ```bash
