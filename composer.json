@@ -20,7 +20,7 @@
             "url": "https://github.com/igcopensources/akeneo-supplier-bundle.git",
             "branch": "master"
         }
-    ]
+    ],
     "minimum-stability": "stable",
     "require": {
         "akeneo/pim-enterprise-dev": "2.0.*",
