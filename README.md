@@ -20,9 +20,9 @@ Add the following lines to the "repositories" section of your composer.json file
 "repositories": [
         // ...
         {
-        "type": "vcs",
-        "url": "https://github.com/igcopensources/akeneo-supplier-bundle.git",
-        "branch": "master"
+            "type": "vcs",
+            "url": "https://github.com/igcopensources/akeneo-supplier-bundle.git",
+            "branch": "master"
         }
         // ...
 ]
