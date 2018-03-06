@@ -45,7 +45,7 @@ $bundles = [
 Update your application.
 ```bash
 // Restart php fpm service.
-rm -rf var/cache/*
+rm -rf var/cache/* web/js/* web/bundles/*
 bin/console doctrine:schema:update --force -e=prod
 bin/console pim:installer:assets -e=prod
 yarn run webpack
