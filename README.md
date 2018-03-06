@@ -44,6 +44,7 @@ $bundles = [
 
 Update your application.
 ```bash
+// Restart php fpm service.
 rm -rf var/cache/*
 bin/console doctrine:schema:update --force -e=prod
 bin/console pim:installer:assets -e=prod
