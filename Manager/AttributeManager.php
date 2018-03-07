@@ -3,8 +3,9 @@
 namespace Cgi\SupplierBundle\Manager;
 
 use Pim\Bundle\CatalogBundle\Doctrine\ORM\Repository\AttributeRepository;
+use Pim\Component\Catalog\AttributeTypes;
 use Pim\Component\Catalog\Model\AttributeInterface;
-use Cgi\SupplierBundle\Entity\Supplier;
+use Pim\Component\ReferenceData\ConfigurationRegistry;
 
 /**
  * Class AttributeManager
@@ -16,15 +17,26 @@ class AttributeManager
 {
     /** @var AttributeRepository */
     protected $attributeRepository;
+    /** @var ConfigurationRegistry */
+    protected $registry;
+    /** @var string */
+    protected $supplierClass;
 
     /**
      * AttributeManager constructor.
      *
-     * @param AttributeRepository $attributeRepository
+     * @param AttributeRepository   $attributeRepository
+     * @param ConfigurationRegistry $registry
+     * @param string                $supplierClass
      */
-    public function __construct(AttributeRepository $attributeRepository)
-    {
+    public function __construct(
+        AttributeRepository $attributeRepository,
+        ConfigurationRegistry $registry,
+        $supplierClass
+    ) {
         $this->attributeRepository = $attributeRepository;
+        $this->registry            = $registry;
+        $this->supplierClass       = $supplierClass;
     }
 
     /**
@@ -34,17 +46,28 @@ class AttributeManager
      */
     public function getSupplierAttributes()
     {
+        // Find all reference data attributes.
         $queryBuilder = $this->attributeRepository->createQueryBuilder('a');
         $queryBuilder->where(
-            $queryBuilder->expr()->like(
-                'a.properties',
-                $queryBuilder->expr()->literal('%"reference_data_name";s:8:"'. Supplier::REFERENCE_DATA_NAME . '"%')
+            $queryBuilder->expr()->in(
+                'a.type',
+                [
+                    AttributeTypes::REFERENCE_DATA_MULTI_SELECT,
+                    AttributeTypes::REFERENCE_DATA_SIMPLE_SELECT
+                ]
             )
         );
 
-        $query = $queryBuilder->getQuery();
-        $query->useResultCache(true, 3600, "supplierAttributes");
+        // Filter on attributes based on reference data that use supplier.
+        /** @var AttributeInterface[] $attributes */
+        $attributes = $queryBuilder->getQuery()->getResult();
+        $supplierAttributes = [];
+        foreach ($attributes as $attribute) {
+            if ($this->registry->get($attribute->getReferenceDataName())->getClass() == $this->supplierClass) {
+                $supplierAttributes[] = $attribute;
+            }
+        }
 
-        return $query->getResult();
+        return $supplierAttributes;
     }
 }
