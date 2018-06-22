@@ -15,19 +15,8 @@ If you have not installed the [custom entity bundle](https://github.com/akeneo-l
 
 You can install this bundle with composer :
 
-Add the following lines to the "repositories" section of your composer.json file.
-```javascript
-"repositories": [
-        // ...
-        {
-            "type": "vcs",
-            "url": "https://github.com/igcopensources/akeneo-supplier-bundle.git",
-            "branch": "master"
-        }
-        // ...
-]
 ```
-Then launch the following command line.  
+Launch the following command line.  
 ```bash
 php composer.phar require "igcopensources/akeneo-supplier-bundle":"1.0.*"
 ```
